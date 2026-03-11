@@ -1,0 +1,385 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    padding: 20px;
+}
+
+.container {
+    background: rgba(255, 255, 255, 0.95);
+    border-radius: 20px;
+    width: 100%;
+    max-width: 700px;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+    overflow: hidden;
+    margin-top: 10px;
+}
+
+h1 {
+    text-align: center;
+    padding: 20px;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    font-size: 24px;
+    margin: 0;
+}
+
+/* Tab Styles */
+.tabs {
+    display: flex;
+    background: #f0f0f0;
+}
+
+.tab-btn {
+    flex: 1;
+    padding: 15px 10px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: 600;
+    color: #666;
+    transition: all 0.3s;
+    border-bottom: 3px solid transparent;
+}
+
+.tab-btn:hover {
+    background: #e0e0e0;
+    color: #333;
+}
+
+.tab-btn.active {
+    background: white;
+    color: #667eea;
+    border-bottom-color: #667eea;
+}
+
+.tab-content {
+    display: none;
+    padding: 20px;
+}
+
+.tab-content.active {
+    display: block;
+}
+
+/* Form Elements */
+label {
+    font-weight: 600;
+    display: block;
+    margin-bottom: 5px;
+    color: #333;
+    font-size: 13px;
+}
+
+input, select, textarea {
+    width: 100%;
+    padding: 10px 12px;
+    margin-bottom: 12px;
+    border-radius: 8px;
+    border: 1px solid #ddd;
+    font-size: 14px;
+    transition: border 0.3s;
+}
+
+input:focus, select:focus, textarea:focus {
+    outline: none;
+    border-color: #667eea;
+    box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+}
+
+textarea {
+    resize: vertical;
+    min-height: 60px;
+}
+
+/* Voice Input */
+.input-group {
+    position: relative;
+}
+
+.input-group textarea {
+    padding-right: 45px;
+}
+
+.voice-btn {
+    position: absolute;
+    right: 8px;
+    bottom: 20px;
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    background: #667eea;
+    border: none;
+    color: white;
+    cursor: pointer;
+    font-size: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s;
+}
+
+.voice-btn:hover {
+    background: #764ba2;
+    transform: scale(1.1);
+}
+
+#voiceStatus {
+    background: #e8f4fd;
+    padding: 10px;
+    border-radius: 8px;
+    margin-bottom: 12px;
+    font-size: 13px;
+    color: #667eea;
+    display: none;
+}
+
+/* Language Select */
+.language-selects {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 12px;
+}
+
+.language-selects select {
+    flex: 1;
+    margin-bottom: 0;
+}
+
+/* Buttons */
+.btn-group {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+button[type="submit"], button[type="reset"] {
+    flex: 1;
+    min-width: 120px;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 10px;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+button[type="submit"] {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+}
+
+button[type="submit"]:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 20px rgba(102, 126, 234, 0.4);
+}
+
+button[type="reset"] {
+    background: #f0f0f0;
+    color: #666;
+}
+
+button[type="reset"]:hover {
+    background: #e0e0e0;
+}
+
+.action-btn {
+    padding: 10px 16px;
+    background: #667eea;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 13px;
+    cursor: pointer;
+    transition: all 0.3s;
+    flex: 1;
+}
+
+.action-btn:hover {
+    background: #764ba2;
+}
+
+.action-btn.save-btn {
+    background: #10b981;
+}
+
+.action-btn.save-btn:hover {
+    background: #059669;
+}
+
+/* Result Box */
+.result {
+    margin-top: 20px;
+    padding: 15px;
+    background: #f8f9ff;
+    border-radius: 12px;
+    border: 1px solid #e0e0ff;
+}
+
+.result h3 {
+    color: #667eea;
+    margin-bottom: 12px;
+    font-size: 16px;
+}
+
+.result textarea {
+    background: white;
+    border: 1px solid #ddd;
+    min-height: 120px;
+    font-size: 13px;
+    line-height: 1.5;
+}
+
+.result .btn-group {
+    margin-top: 12px;
+}
+
+/* History Styles */
+.history-list {
+    max-height: 350px;
+    overflow-y: auto;
+}
+
+.history-item {
+    border: 1px solid #e0e0e0;
+    border-radius: 10px;
+    padding: 12px;
+    margin-bottom: 10px;
+    background: white;
+    transition: all 0.3s;
+}
+
+.history-item:hover {
+    box-shadow: 0 3px 12px rgba(0, 0, 0, 0.1);
+}
+
+.history-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 8px;
+}
+
+.history-type {
+    font-weight: 600;
+    color: #667eea;
+    font-size: 12px;
+}
+
+.history-time {
+    font-size: 11px;
+    color: #999;
+    flex: 1;
+    margin-left: 10px;
+}
+
+.delete-btn {
+    background: #ef4444;
+    width: 28px;
+    height: 28px;
+    padding: 0;
+    font-size: 12px;
+    border-radius: 6px;
+}
+
+.history-subject {
+    cursor: pointer;
+    padding: 8px 10px;
+    background: #f8f9ff;
+    border-radius: 6px;
+    font-size: 13px;
+    color: #333;
+}
+
+.history-subject:hover {
+    background: #e8eeff;
+}
+
+.history-content {
+    margin-top: 10px;
+    padding: 10px;
+    background: white;
+    border-radius: 6px;
+    border: 1px solid #e0e0e0;
+}
+
+.history-content textarea {
+    min-height: 80px;
+    font-size: 12px;
+}
+
+.history-content .btn-group {
+    margin-top: 8px;
+}
+
+.history-content .action-btn {
+    padding: 8px 12px;
+    font-size: 12px;
+}
+
+/* Empty State */
+.empty-state {
+    text-align: center;
+    padding: 40px 20px;
+    color: #999;
+}
+
+.empty-state p {
+    font-size: 14px;
+}
+
+/* Scrollbar */
+.history-list::-webkit-scrollbar {
+    width: 6px;
+}
+
+.history-list::-webkit-scrollbar-track {
+    background: #f1f1f1;
+    border-radius: 3px;
+}
+
+.history-list::-webkit-scrollbar-thumb {
+    background: #667eea;
+    border-radius: 3px;
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+    .container {
+        max-width: 100%;
+        border-radius: 15px;
+    }
+    
+    .tabs {
+        flex-wrap: wrap;
+    }
+    
+    .tab-btn {
+        padding: 12px 8px;
+        font-size: 12px;
+    }
+    
+    .language-selects {
+        flex-direction: column;
+    }
+    
+    .btn-group {
+        flex-direction: column;
+    }
+    
+    button[type="submit"], button[type="reset"], .action-btn {
+        width: 100%;
+    }
+}
+
